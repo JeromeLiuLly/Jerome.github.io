@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。在介绍具体适合类之前，本篇文章对Java中的集合框架做一个大致描述，从一个高的角度俯视这个框架，了解了这个框架的一些理念与约定，会大大帮助后面分析某个具体类">
+<meta name="description" content="优秀的人，不是不合群，而是他们合群的人里面没有你最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。在介绍具体适合类之前，本篇文章对Java中的集合框架做一个大致描述，从一个高的角度俯视这个框架，了解了这个框">
 <meta name="keywords" content="Java集合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合框架综述">
 <meta property="og:url" content="http://yoursite.com/2017/04/19/Java集合框架综述/index.html">
 <meta property="og:site_name" content="JeromeLiu's 做自己">
-<meta property="og:description" content="最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。在介绍具体适合类之前，本篇文章对Java中的集合框架做一个大致描述，从一个高的角度俯视这个框架，了解了这个框架的一些理念与约定，会大大帮助后面分析某个具体类">
-<meta property="og:updated_time" content="2017-04-19T01:58:08.295Z">
+<meta property="og:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。在介绍具体适合类之前，本篇文章对Java中的集合框架做一个大致描述，从一个高的角度俯视这个框架，了解了这个框">
+<meta property="og:updated_time" content="2017-04-19T02:03:32.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合框架综述">
-<meta name="twitter:description" content="最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。在介绍具体适合类之前，本篇文章对Java中的集合框架做一个大致描述，从一个高的角度俯视这个框架，了解了这个框架的一些理念与约定，会大大帮助后面分析某个具体类">
+<meta name="twitter:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。在介绍具体适合类之前，本篇文章对Java中的集合框架做一个大致描述，从一个高的角度俯视这个框架，了解了这个框">
 
 
 
@@ -399,7 +399,8 @@
       
 
       
-        <p>最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；<br>另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。<br>在介绍具体适合类之前，本篇文章对Java中的集合框架做一个大致描述，从一个高的角度俯视这个框架，了解了这个框架的一些理念与约定，会大大帮助后面分析某个具体类，让我们开始吧。</p>
+        <p><blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote><br>最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；<br>另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。<br>在介绍具体适合类之前，本篇文章对Java中的集合框架做一个大致描述，从一个高的角度俯视这个框架，了解了这个框架的一些理念与约定，会大大帮助后面分析某个具体类，让我们开始吧。</p>
+<h2 id="集合框架（collections-framework）"><a href="#集合框架（collections-framework）" class="headerlink" title="集合框架（collections framework）"></a>集合框架（collections framework）</h2><p>首先要明确，集合代表了一组对象（和数组一样，但数组长度不能变，而集合能）。Java中的集合框架定义了一套规范，用来表示、操作集合，使具体操作与实现细节解耦。<br>其实说白了，可以把一个集合看成一个微型数据库，操作不外乎“增删改查”四种操作，我们在学习使用一个具体的集合类时，需要把这四个操作的<span style="color:red">时空复杂度</span>弄清楚了，基本上就可以说掌握这个类了。</p>
 
       
     </div>
@@ -503,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/JeromeLiu.jpg"
@@ -575,6 +585,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合框架（collections-framework）"><span class="nav-number">1.</span> <span class="nav-text">集合框架（collections framework）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
