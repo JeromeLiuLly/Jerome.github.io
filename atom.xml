@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>JeromeLiu&#39;s 做自己</title>
+  <subtitle>地上本无路，庸人自扰之</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-04-19T01:58:08.295Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>JeromeLiu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java集合框架综述</title>
+    <link href="http://yoursite.com/2017/04/19/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%BB%BC%E8%BF%B0/"/>
+    <id>http://yoursite.com/2017/04/19/Java集合框架综述/</id>
+    <published>2017-04-19T01:56:44.000Z</published>
+    <updated>2017-04-19T01:58:08.295Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；<br>另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。<br>在介绍具体适合类之前，本篇文章对Java中的集合框架做一个大致描述，从一个高的角度俯视这个框架，了解了这个框架的一些理念与约定，会大大帮助后面分析某个具体类，让我们开始吧。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近被陆陆续续问了几遍HashMap的实现，回答的不好，打算复习复习JDK中的集合框架，并尝试分析其源码，这么做一方面是这些类非常实用，掌握其实现能更好的优化我们的程序；&lt;br&gt;另一方面是学习借鉴JDK是如何实现了这么一套优雅高效的类库，提升编程能力。&lt;br&gt;在介绍具体适合
+    
+    </summary>
+    
+    
+      <category term="Java集合" scheme="http://yoursite.com/tags/Java%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2017/04/18/hello-world/"/>
+    <id>http://yoursite.com/2017/04/18/hello-world/</id>
+    <published>2017-04-18T05:14:45.733Z</published>
+    <updated>2017-04-18T11:02:13.563Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+    
+  </entry>
+  
+</feed>
