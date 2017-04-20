@@ -1,0 +1,1270 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Kubernetes,Docker," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="世上本无路，庸人自扰之" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="优秀的人，不是不合群，而是他们合群的人里面没有你 第一种安装方案(官网)基于官方的安装方式(安装包并非是最新版本的) 准备CentOS 7.x环境查看内核版本123[root@k8s-master kube-yaml]# uname -r3.10.0-514.6.1.el7.x86_64[root@k8s-master kube-yaml]#  最好是选择3.10版本以上的内核，进行安装。本次安装">
+<meta name="keywords" content="Kubernetes,Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes环境搭建">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/Kubernetes环境搭建/index.html">
+<meta property="og:site_name" content="世上本无路，庸人自扰之">
+<meta property="og:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你 第一种安装方案(官网)基于官方的安装方式(安装包并非是最新版本的) 准备CentOS 7.x环境查看内核版本123[root@k8s-master kube-yaml]# uname -r3.10.0-514.6.1.el7.x86_64[root@k8s-master kube-yaml]#  最好是选择3.10版本以上的内核，进行安装。本次安装">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates环境安装.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates搭建结果.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/hosts配置.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-config.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/setlinux.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/ectd.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/apiserver.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/start-etcd.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-network.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/flanneld.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-start.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-ready.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates环境安装.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates搭建结果.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/hosts配置.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/setlinux.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-config.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/kubectl.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/flanneld.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-node.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/kubectl-config.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-install.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-config.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-config2.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-start.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-calico-config.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-calico-apiserver.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-server.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-kubectl.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-proxy.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-config.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker2.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-server2.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-edit-kubectl.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/kube-dns.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker-node-1.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker-node-2.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker-node-3.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-config-1.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-config-2.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-config-3.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/policy-controller.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-node-status.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-node.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-pool.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/do-pool.png">
+<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/get-pool.png">
+<meta property="og:updated_time" content="2017-04-20T07:26:03.553Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kubernetes环境搭建">
+<meta name="twitter:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你 第一种安装方案(官网)基于官方的安装方式(安装包并非是最新版本的) 准备CentOS 7.x环境查看内核版本123[root@k8s-master kube-yaml]# uname -r3.10.0-514.6.1.el7.x86_64[root@k8s-master kube-yaml]#  最好是选择3.10版本以上的内核，进行安装。本次安装">
+<meta name="twitter:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates环境安装.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/20/Kubernetes环境搭建/"/>
+
+
+
+
+
+  <title> Kubernetes环境搭建 | 世上本无路，庸人自扰之 </title>
+  
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">世上本无路，庸人自扰之</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">世上本无路，庸人自扰之</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            生活历程
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/Kubernetes环境搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JeromeLiu">
+      <meta itemprop="description" content="技术高于业务，但又服务于业务。">
+      <meta itemprop="image" content="/uploads/JeromeLiu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="世上本无路，庸人自扰之">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Kubernetes环境搭建
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T10:53:15+08:00">
+                2017-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+            
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/容器化/" itemprop="url" rel="index">
+                    <span itemprop="name">容器化</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+           <span id="busuanzi_container_page_pv">
+       &nbsp; | &nbsp; 热度&nbsp; <span id="busuanzi_value_page_pv"></span>°C
+       </span>
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/04/20/Kubernetes环境搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/04/20/Kubernetes环境搭建/" class="leancloud_visitors" data-flag-title="Kubernetes环境搭建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote></p>
+<h2 id="第一种安装方案-官网"><a href="#第一种安装方案-官网" class="headerlink" title="第一种安装方案(官网)"></a>第一种安装方案(官网)</h2><p>基于官方的安装方式(<code style="color:red">安装包并非是最新版本的</code>)</p>
+<h3 id="准备CentOS-7-x环境"><a href="#准备CentOS-7-x环境" class="headerlink" title="准备CentOS 7.x环境"></a>准备CentOS 7.x环境</h3><p>查看内核版本<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@k8s-master kube-yaml]<span class="meta"># uname -r</span></div><div class="line"><span class="number">3.10</span><span class="number">.0</span><span class="number">-514.6</span><span class="number">.1</span>.el7.x86_64</div><div class="line">[root@k8s-master kube-yaml]# </div></pre></td></tr></table></figure></p>
+<p>最好是选择<code style="color:red">3.10</code>版本以上的内核，进行安装。<br>本次安装，选择了4台服务器进行集群安装。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[root@k8s-master kube-yaml]<span class="meta"># cat /etc/hosts</span></div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.93</span> k8s-master</div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.92</span> k8s-node<span class="number">-1</span></div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.81</span> k8s-node<span class="number">-2</span></div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.82</span> k8s-node<span class="number">-3</span></div><div class="line">[root@k8s-master kube-yaml]# </div></pre></td></tr></table></figure>
+<p>配置官方<a href="https://kubernetes.io/docs/getting-started-guides/centos/centos_manual_config/" target="_blank" rel="external">k8s yum源</a>:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[virt7-docker-common-release]</div><div class="line">name=virt7-docker-common-release</div><div class="line">baseurl=http:<span class="comment">//cbs.centos.org/repos/virt7-docker-common-release/x86_64/os/</span></div><div class="line">gpgcheck=<span class="number">0</span></div></pre></td></tr></table></figure></p>
+<p>配置<a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="external">阿里云yum源</a>:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">[base]</div><div class="line">name=CentOS-$releasever - Base - mirrors.aliyun.com</div><div class="line">failovermethod=priority</div><div class="line">baseurl=http:<span class="comment">//mirrors.aliyun.com/centos/$releasever/os/$basearch/</span></div><div class="line">        http:<span class="comment">//mirrors.aliyuncs.com/centos/$releasever/os/$basearch/</span></div><div class="line">#mirrorlist=http:<span class="comment">//mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=os</span></div><div class="line">gpgcheck=<span class="number">1</span></div><div class="line">gpgkey=http:<span class="comment">//mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7</span></div><div class="line"></div><div class="line">#released updates</div><div class="line">[updates]</div><div class="line">name=CentOS-$releasever - Updates - mirrors.aliyun.com</div><div class="line">failovermethod=priority</div><div class="line">baseurl=http:<span class="comment">//mirrors.aliyun.com/centos/$releasever/updates/$basearch/        http://mirrors.aliyuncs.com/centos/$releasever/updates/$basearch/</span></div><div class="line">#mirrorlist=http:<span class="comment">//mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=updates</span></div><div class="line">gpgcheck=<span class="number">1</span></div><div class="line">gpgkey=http:<span class="comment">//mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7</span></div><div class="line">#additional packages that may be useful</div><div class="line">[extras]</div><div class="line">name=CentOS-$releasever - Extras - mirrors.aliyun.com</div><div class="line">failovermethod=priority</div><div class="line">baseurl=http:<span class="comment">//mirrors.aliyun.com/centos/$releasever/extras/$basearch/</span></div><div class="line">http:<span class="comment">//mirrors.aliyuncs.com/centos/$releasever/extras/$basearch/</span></div><div class="line">#mirrorlist=http:<span class="comment">//mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=extras</span></div><div class="line">gpgcheck=<span class="number">1</span></div><div class="line">gpgkey=http:<span class="comment">//mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7</span></div><div class="line">#additional packages that extend functionality of existing packages</div><div class="line">[centosplus]</div><div class="line">name=CentOS-$releasever - Plus - mirrors.aliyun.com</div><div class="line">failovermethod=priority</div><div class="line">baseurl=http:<span class="comment">//mirrors.aliyun.com/centos/$releasever/centosplus/$basearch/    http://mirrors.aliyuncs.com/centos/$releasever/centosplus/$basearch/</span></div><div class="line">#mirrorlist=http:<span class="comment">//mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=centosplus</span></div><div class="line">gpgcheck=<span class="number">1</span></div><div class="line">enabled=<span class="number">0</span></div><div class="line">gpgkey=http:<span class="comment">//mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7</span></div><div class="line">#contrib - packages by Centos Users</div><div class="line">[contrib]</div><div class="line">name=CentOS-$releasever - Contrib - mirrors.aliyun.com</div><div class="line">failovermethod=priority</div><div class="line">baseurl=http:<span class="comment">//mirrors.aliyun.com/centos/$releasever/contrib/$basearch/</span></div><div class="line">http:<span class="comment">//mirrors.aliyuncs.com/centos/$releasever/contrib/$basearch/</span></div><div class="line">#mirrorlist=http:<span class="comment">//mirrorlist.centos.org/?release=$releasever&amp;arch=$basearch&amp;repo=contrib</span></div><div class="line">gpgcheck=<span class="number">1</span></div><div class="line">enabled=<span class="number">0</span></div><div class="line">gpgkey=http:<span class="comment">//mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-7</span></div></pre></td></tr></table></figure></p>
+<p>更新本地镜像源<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum clean all</div><div class="line">yum makecache</div></pre></td></tr></table></figure></p>
+<h3 id="安装Kubernetes环境-Master"><a href="#安装Kubernetes环境-Master" class="headerlink" title="安装Kubernetes环境(Master)"></a>安装Kubernetes环境(Master)</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install --enablerepo=virt7-docker-common-release kubernetes etcd flannel</div></pre></td></tr></table></figure><img src="/uploads/Kubernetes环境搭建/Kubernates环境安装.png" alt="Kubernates环境安装"><br><br>安装的过程有点久，因为需要下载和安装。期间如果出现什么下载失败，更新包更新失败。基本上都是因为yum的问题，换个国内大企业的镜像yum就好了。<br><img src="/uploads/Kubernetes环境搭建/Kubernates搭建结果.png" alt="Kubernates搭建结果"><br>至此，整个下载和安装的过程就算成功了。<br><br>编辑本地host文件，做好访问映射：<code style="color:red">vim /etc/hosts</code><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@k8s-master kube-yaml]<span class="meta"># cat /etc/hosts</span></div><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>   localhost localhost.localdomain localhost4 localhost4.localdomain4</div><div class="line">::<span class="number">1</span>         localhost localhost.localdomain localhost6 localhost6.localdomain6</div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.93</span> k8s-master</div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.92</span> k8s-node<span class="number">-1</span></div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.81</span> k8s-node<span class="number">-2</span></div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.82</span> k8s-node<span class="number">-3</span></div></pre></td></tr></table></figure><img src="/uploads/Kubernetes环境搭建/hosts配置.png" alt="Hosts配置"><br><br>编辑k8s的配置文件信息：<code style="color:red">vi /etc/kubernetes/config</code><br><img src="/uploads/Kubernetes环境搭建/k8s-config.png" alt="k8s-config"><br><br>由于<code style="color:red">CentOS 7.x</code>默认是开启防火墙的，需要进行防火墙的设置操作：<br>关闭SELinux：<code style="color:red">setenforce 0</code><br>1、临时关闭(不用重启机器):<br><blockquote><br>setenforce 0       #设置SELinux 成为permissive模式<br>setenforce 1       #设置SELinux 成为enforcing模式<br></blockquote><img src="/uploads/Kubernetes环境搭建/setlinux.png" alt="setLinux"><br>2、关闭防火墙:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl stop firewalld.service</div><div class="line">systemctl disable firewalld.service</div></pre></td></tr></table></figure>
+<p>编辑etcd的配置文件信息：<code style="color:red">vi /etc/etcd/etcd.conf</code><br><img src="/uploads/Kubernetes环境搭建/ectd.png" alt="etcd"></p>
+<p>编辑k8s的配置信息：<code style="color:red">vi /etc/kubernetes/apiserver</code><br><img src="/uploads/Kubernetes环境搭建/apiserver.png" alt="apiserver"></p>
+<p>启动etcd服务：<code style="color:red">systemctl start etcd</code><br><img src="/uploads/Kubernetes环境搭建/start-etcd.png" alt="start-etcd"></p>
+<p>创建网络，并且设置网络配置信息：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">etcdctl mkdir /kube-centos/network</div><div class="line">etcdctl mk /kube-centos/network/config </div><div class="line"><span class="string">"&#123;\"Network\":\"172.30.0.0/16\",\"SubnetLen\":24,\"Backend\":&#123;\"Type\":\"vxlan\"&#125;&#125;"</span></div></pre></td></tr></table></figure><img src="/uploads/Kubernetes环境搭建/etcd-network.png" alt="etcd-network"></p>
+<p>配置flanneld信息：<code style="color:red">vi /etc/sysconfig/flanneld</code><br><img src="/uploads/Kubernetes环境搭建/flanneld.png" alt="flanneld"></p>
+<p>运行环境：<code style="color:red">for SERVICES in etcd kube-apiserver kube-controller-manager kube-scheduler flanneld; do systemctl restart $SERVICES; systemctl enable $SERVICES; systemctl status $SERVICES; done</code><br><img src="/uploads/Kubernetes环境搭建/k8s-start.png" alt="k8s-start"><img src="/uploads/Kubernetes环境搭建/k8s-ready.png" alt="k8s-ready"></p>
+<p>至此k8s-master的安装和启动到此完成。</p>
+<h3 id="安装Kubernetes环境-Minion-Node"><a href="#安装Kubernetes环境-Minion-Node" class="headerlink" title="安装Kubernetes环境(Minion/Node):"></a>安装Kubernetes环境(Minion/Node):</h3><p>内核版本和yum源配置，请参考上面部分进行配置就可以了。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install --enablerepo=virt7-docker-common-release kubernetes flannel</div></pre></td></tr></table></figure><img src="/uploads/Kubernetes环境搭建/Kubernates环境安装.png" alt="Kubernates环境安装"></p>
+<p>安装的过程有点久，因为需要下载和安装。期间如果出现什么下载失败，更新包更新失败。基本上都是因为yum的问题，换个国内大企业的镜像yum就好了。<br><img src="/uploads/Kubernetes环境搭建/Kubernates搭建结果.png" alt="Kubernates搭建结果"><br>至此，整个下载和安装的过程就算成功了。</p>
+<p>编辑本地host文件，做好访问映射：<code style="color:red">vim /etc/hosts</code><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[root@k8s-master kube-yaml]<span class="meta"># cat /etc/hosts</span></div><div class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>   localhost localhost.localdomain localhost4 localhost4.localdomain4</div><div class="line">::<span class="number">1</span>         localhost localhost.localdomain localhost6 localhost6.localdomain6</div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.93</span> k8s-master</div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.92</span> k8s-node<span class="number">-1</span></div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.81</span> k8s-node<span class="number">-2</span></div><div class="line"><span class="number">10.200</span><span class="number">.102</span><span class="number">.82</span> k8s-node<span class="number">-3</span></div></pre></td></tr></table></figure><img src="/uploads/Kubernetes环境搭建/hosts配置.png" alt="Hosts配置"></p>
+<p>由于<code style="color:red">CentOS 7.x</code>默认是开启防火墙的，需要进行防火墙的设置操作：<br>关闭SELinux：<code style="color:red">setenforce 0</code><br>1、临时关闭(不用重启机器):</p>
+<p><blockquote><br>setenforce 0       #设置SELinux 成为permissive模式<br>setenforce 1       #设置SELinux 成为enforcing模式<br></blockquote><img src="/uploads/Kubernetes环境搭建/setlinux.png" alt="setLinux"><br>2、关闭防火墙:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl stop firewalld.service</div><div class="line">systemctl disable firewalld.service</div></pre></td></tr></table></figure></p>
+<p>编辑k8s的配置文件信息：<code style="color:red">vi /etc/kubernetes/config</code><br><img src="/uploads/Kubernetes环境搭建/k8s-config.png" alt="k8s-config"></p>
+<p>配置kubernetes信息：<code style="color:red">vi /etc/kubernetes/kubelet</code><br><img src="/uploads/Kubernetes环境搭建/kubectl.png" alt="kubectl"></p>
+<p>配置flanneld信息：<code style="color:red">vi /etc/sysconfig/flanneld</code><br><img src="/uploads/Kubernetes环境搭建/flanneld.png" alt="flanneld"></p>
+<p>运行环境：<code style="color:red">for SERVICES in kube-proxy kubelet flanneld docker; do systemctl restart $SERVICES; systemctl enable $SERVICES; systemctl status $SERVICES; done</code><img src="/uploads/Kubernetes环境搭建/k8s-node.png" alt="k8s-node"></p>
+<p>配置参数：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">kubectl config <span class="built_in">set</span>-cluster <span class="keyword">default</span>-cluster --server=http:<span class="comment">//k8s-master:8080</span></div><div class="line">kubectl config <span class="built_in">set</span>-context <span class="keyword">default</span>-context --cluster=<span class="keyword">default</span>-cluster --user=<span class="keyword">default</span>-admin</div><div class="line">kubectl config use-context <span class="keyword">default</span>-context</div></pre></td></tr></table></figure><img src="/uploads/Kubernetes环境搭建/kubectl-config.png" alt="kubectl-config"></p>
+<h2 id="第二种安装方案-tar安装"><a href="#第二种安装方案-tar安装" class="headerlink" title="第二种安装方案(tar安装)"></a>第二种安装方案(tar安装)</h2><p>服务器环境：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="number">10.15</span><span class="number">.206</span><span class="number">.120</span> vip </div><div class="line"><span class="number">10.15</span><span class="number">.206</span><span class="number">.105</span> master </div><div class="line"><span class="number">10.15</span><span class="number">.206</span><span class="number">.106</span> node </div><div class="line"></div><div class="line"><span class="number">10.15</span><span class="number">.206</span><span class="number">.107</span> etcd1 node </div><div class="line"><span class="number">10.15</span><span class="number">.206</span><span class="number">.108</span> etcd2 node </div><div class="line"><span class="number">10.15</span><span class="number">.206</span><span class="number">.109</span> etcd3</div></pre></td></tr></table></figure></p>
+<h3 id="第一步：配置flannel网卡-先在etcd中注册flannel子网："><a href="#第一步：配置flannel网卡-先在etcd中注册flannel子网：" class="headerlink" title="第一步：配置flannel网卡,先在etcd中注册flannel子网："></a>第一步：配置flannel网卡,先在etcd中注册flannel子网：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">etcdctl set /coreos.com/network/config '&#123;"network": "172.16.0.0/16"&#125;'</div></pre></td></tr></table></figure>
+<h3 id="第二步：在所有节点安装flannel"><a href="#第二步：在所有节点安装flannel" class="headerlink" title="第二步：在所有节点安装flannel"></a>第二步：在所有节点安装flannel</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y flannel</div></pre></td></tr></table></figure>
+<h3 id="第三步：修改flannel配置文件-etc-sysconfig-flanneld"><a href="#第三步：修改flannel配置文件-etc-sysconfig-flanneld" class="headerlink" title="第三步：修改flannel配置文件/etc/sysconfig/flanneld"></a>第三步：修改flannel配置文件/etc/sysconfig/flanneld</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FLANNEL_ETCD=<span class="string">"http://10.15.206.107:2379,http://10.15.206.108:2379,http://10.15.206.109:2379"</span> </div><div class="line">FLANNEL_ETCD_KEY=<span class="string">"/coreos.com/network"</span></div></pre></td></tr></table></figure>
+<p>重启flannel：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl start flanneld </div><div class="line">systemctl enable flanneld</div></pre></td></tr></table></figure></p>
+<p>需要说明的是，如果要让docker使用flannel的网络，docker必须要后于flannel启动，所以需要重新启动docker<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl restart docker</div></pre></td></tr></table></figure></p>
+<h3 id="第四步：下载地址"><a href="#第四步：下载地址" class="headerlink" title="第四步：下载地址"></a>第四步：下载地址</h3><p>kubernetes-client地址<br><a href="https://storage.googleapis.com/kubernetes-release/release/v1.5.3/kubernetes-client-linux-amd64.tar.gz" target="_blank" rel="external">https://storage.googleapis.com/kubernetes-release/release/v1.5.3/kubernetes-client-linux-amd64.tar.gz</a></p>
+<p>kubernetes-server地址：<br><a href="https://storage.googleapis.com/kubernetes-release/release/v1.5.3/kubernetes-server-linux-amd64.tar.gz" target="_blank" rel="external">https://storage.googleapis.com/kubernetes-release/release/v1.5.3/kubernetes-server-linux-amd64.tar.gz</a></p>
+<h3 id="第五步：在server端服务器解压包"><a href="#第五步：在server端服务器解压包" class="headerlink" title="第五步：在server端服务器解压包"></a>第五步：在server端服务器解压包</h3><p>tar zxvf kubernetes-server-linux-amd64.tar.gz cd kubernetes/server/bin </p>
+<p>然后将文件复制到/usr/local/bin下<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for i in `ls -F|grep "*"|awk '&#123;print $1&#125;'|awk -F "*" '&#123;print $1&#125;'`;</div><div class="line">do </div><div class="line">   cp $i /usr/local/bin/ ;</div><div class="line">done</div></pre></td></tr></table></figure></p>
+<h3 id="第六步：启动master"><a href="#第六步：启动master" class="headerlink" title="第六步：启动master"></a>第六步：启动master</h3><p>启动api-server<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">kube-apiserver </div><div class="line">             --address=0.0.0.0 </div><div class="line">             --insecure-port=8080 </div><div class="line">             --service-cluster-ip-range='10.15.206.120/24' </div><div class="line">             --log_dir=/usr/local/kubernetes/logs/kube </div><div class="line">             --kubelet_port=10250 </div><div class="line">             --v=0 </div><div class="line">             --logtostderr=false </div><div class="line">             --etcd_servers=http://10.15.206.107:2379,http://10.15.206.108:2379,http://10.15.206.109:2379 </div><div class="line">             --allow_privileged=false &gt;&gt; /usr/local/kubernetes/logs/kube-apiserver.log 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure></p>
+<p>启动controller-manager<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">kube-controller-manager </div><div class="line">                       --v=<span class="number">0</span> </div><div class="line">                       --logtostderr=<span class="literal">false</span> </div><div class="line">                       --log_dir=/usr/local/kubernetes/logs/kube </div><div class="line">                       --master=<span class="number">10.15</span><span class="number">.206</span><span class="number">.120</span>:<span class="number">8080</span> &gt;&gt; /usr/local/kubernetes/logs/kube-controller-manager <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</div></pre></td></tr></table></figure></p>
+<p>启动scheduler<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kube-scheduler </div><div class="line">              --master='10.15.206.120:8080' </div><div class="line">              --v=0 </div><div class="line">              --log_dir=/usr/local/kubernetes/logs/kube &gt;&gt; /usr/local/kubernetes/logs/kube-scheduler.log 2&gt;&amp;1 &amp;</div></pre></td></tr></table></figure></p>
+<h3 id="第七步：验证是否成功"><a href="#第七步：验证是否成功" class="headerlink" title="第七步：验证是否成功"></a>第七步：验证是否成功</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">kubectl get componentstatuses </div><div class="line">     NAME           STATUS  MESSAGE               ERROR </div><div class="line">controller-manager Healthy    ok </div><div class="line">scheduler          Healthy    ok </div><div class="line">etcd<span class="number">-2</span>             Healthy    &#123;<span class="string">"health"</span>: <span class="string">"true"</span>&#125; </div><div class="line">etcd<span class="number">-0</span>             Healthy    &#123;<span class="string">"health"</span>: <span class="string">"true"</span>&#125; </div><div class="line">etcd<span class="number">-1</span>             Healthy    &#123;<span class="string">"health"</span>: <span class="string">"true"</span>&#125;</div></pre></td></tr></table></figure>
+<h3 id="第八步：配置client"><a href="#第八步：配置client" class="headerlink" title="第八步：配置client"></a>第八步：配置client</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tar zxvf kubernetes-client-linux-amd64.tar.gz </div><div class="line">cd kubernetes/client/bin </div><div class="line">cp * /usr/local/bin/</div></pre></td></tr></table></figure>
+<h3 id="第九步：启动client"><a href="#第九步：启动client" class="headerlink" title="第九步：启动client"></a>第九步：启动client</h3><p>启动kubelet<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">kubelet </div><div class="line">       --logtostderr=<span class="literal">false</span> </div><div class="line">       --v=<span class="number">0</span> </div><div class="line">       --allow-privileged=<span class="literal">false</span> </div><div class="line">       --log_dir=/usr/local/kubernetes/logs/kube </div><div class="line">       --address=<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span> </div><div class="line">       --port=<span class="number">10250</span> </div><div class="line">       --hostname_override=<span class="number">10.15</span><span class="number">.206</span><span class="number">.120</span> </div><div class="line">       --api_servers=http:<span class="comment">//10.15.206.120:8080 &gt;&gt; /usr/local/kubernetes/logs/kube-kubelet.log 2&gt;&amp;1 &amp;</span></div></pre></td></tr></table></figure></p>
+<p>启动proxy<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">kube-proxy </div><div class="line">          --logtostderr=<span class="literal">false</span> </div><div class="line">          --v=<span class="number">0</span> </div><div class="line">          --master=http:<span class="comment">//10.15.206.120</span></div></pre></td></tr></table></figure></p>
+<h2 id="第三种安装方案-calico"><a href="#第三种安装方案-calico" class="headerlink" title="第三种安装方案(calico)"></a>第三种安装方案(calico)</h2><h3 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍:"></a>环境介绍:</h3><table>
+<thead>
+<tr>
+<th>服务器</th>
+<th style="text-align:center">Ip</th>
+<th style="text-align:center">Hosts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Centos-7.3</td>
+<td style="text-align:center">10.200.102.95</td>
+<td style="text-align:center">k8s-master</td>
+</tr>
+<tr>
+<td>Centos-7.3</td>
+<td style="text-align:center">10.200.102.94</td>
+<td style="text-align:center">k8s-node-1</td>
+</tr>
+<tr>
+<td>Centos-7.3</td>
+<td style="text-align:center">10.200.102.85</td>
+<td style="text-align:center">k8s-node-2</td>
+</tr>
+<tr>
+<td>Centos-7.3</td>
+<td style="text-align:center">10.200.102.90</td>
+<td style="text-align:center">k8s-node-3</td>
+</tr>
+</tbody>
+</table>
+<p>确保操作系统的内核是3.10版本以上的。<br>并且关闭防火墙和selinux。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setenforce <span class="number">0</span></div><div class="line">systemctl stop firewalld.service</div><div class="line">systemctl disable firewalld.service</div></pre></td></tr></table></figure></p>
+<p>根据需要是否配置必要的源，可以参考上述的源配置。</p>
+<h3 id="etc环境安装-可以选择集群的方案安装"><a href="#etc环境安装-可以选择集群的方案安装" class="headerlink" title="etc环境安装(可以选择集群的方案安装)"></a>etc环境安装(可以选择集群的方案安装)</h3><p>服务器    IP    Hosts<br>|     服务器    |        Ip       |   Hosts   |<br>| ————- |:—————:|:———:|<br>|  Centos-7.3   |  10.200.102.85  |   Echo0   |<br>|  Centos-7.3   |  10.200.102.86  |   Echo1   |<br>|  Centos-7.3   |  10.200.102.84  |   Echo2   |</p>
+<p>安装ectd环境<br><img src="/uploads/Kubernetes环境搭建/etcd-install.png" alt="etcd-install"></p>
+<p>配置etcd信息<br><img src="/uploads/Kubernetes环境搭建/etcd-config.png" alt="etcd-config"></p>
+<p><img src="/uploads/Kubernetes环境搭建/etcd-config2.png" alt="etcd-config2"></p>
+<p>启动服务<br><img src="/uploads/Kubernetes环境搭建/etcd-start.png" alt="etcd-start"><br>所有的节点都进行如上相应的配置</p>
+<h3 id="安装k8s-master环境"><a href="#安装k8s-master环境" class="headerlink" title="安装k8s master环境"></a>安装k8s master环境</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install kubernetes-master docker -y</div></pre></td></tr></table></figure>
+<p>配置好相应的kubernetes信息<br><img src="/uploads/Kubernetes环境搭建/k8s-calico-config.png" alt="k8s-calico-config"></p>
+<p><img src="/uploads/Kubernetes环境搭建/k8s-calico-apiserver.png" alt="k8s-calico-apiserver"></p>
+<p>配置好docker信息<br><img src="/uploads/Kubernetes环境搭建/calico-docker.png" alt="calico-docker"></p>
+<p>查看集群信息<br><img src="/uploads/Kubernetes环境搭建/calico-k8s-server.png" alt="calico-k8s-server"></p>
+<h3 id="安装k8s-node环境"><a href="#安装k8s-node环境" class="headerlink" title="安装k8s node环境"></a>安装k8s node环境</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install kubernetes-node docker –y</div></pre></td></tr></table></figure>
+<p>配置k8s和docker信息<br>配置kubectl<img src="/uploads/Kubernetes环境搭建/calico-k8s-kubectl.png" alt="calico-k8s-kubectl"><br>配置proxy<img src="/uploads/Kubernetes环境搭建/calico-k8s-proxy.png" alt="calico-k8s-proxy"><br>配置config<img src="/uploads/Kubernetes环境搭建/calico-k8s-config.png" alt="calico-k8s-config"><br>配置docker镜像拉取位置<img src="/uploads/Kubernetes环境搭建/calico-docker2.png" alt="calico-docker2"></p>
+<p>查看集群信息<br><img src="/uploads/Kubernetes环境搭建/calico-k8s-server2.png" alt="calico-k8s-server2"></p>
+<h3 id="安装kube-dns环境-master节点"><a href="#安装kube-dns环境-master节点" class="headerlink" title="安装kube-dns环境(master节点)"></a>安装kube-dns环境(master节点)</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">下载kube-dns命令</div><div class="line"># wget https://dl.k8s.io/v1.5.2/kubernetes-server-linux-amd64.tar.gz</div><div class="line"># tar -xf kubernetes-server-linux-amd64.tar.gz</div><div class="line"># mv /opt/docker/src/kubernetes/server/bin/kube-dns /usr/bin/</div><div class="line"></div><div class="line">新建kube-dns配置文件</div><div class="line"># vi /etc/kubernetes/kube-dns</div><div class="line">KUBE_DNS_PORT="--dns-port=53"</div><div class="line">KUBE_DNS_DOMAIN="--domain=cluster.local"</div><div class="line">KUBE_DNS_MASTER=--kube-master-url="http://10.200.102.95:8080”</div><div class="line">KUBE_DNS_ARGS=""</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">新建kube-dns.service配置文件</div><div class="line"><span class="meta"># cat /usr/lib/systemd/system/kube-dns.service</span></div><div class="line">[Unit]</div><div class="line">Description=Kubernetes Kube-dns Server</div><div class="line">Documentation=https:<span class="comment">//github.com/GoogleCloudPlatform/kubernetes</span></div><div class="line">After=kube-apiserver.service</div><div class="line">Requires=kube-apiserver.service</div><div class="line"> </div><div class="line">[Service]</div><div class="line">WorkingDirectory=/var/lib/kube-dns</div><div class="line">EnvironmentFile=-/etc/kubernetes/kube-dns</div><div class="line">ExecStart=/usr/bin/kube-dns \</div><div class="line">            $KUBE_DNS_PORT \</div><div class="line">            $KUBE_DNS_DOMAIN \</div><div class="line">            $KUBE_DNS_MASTER \</div><div class="line">            $KUBE_DNS_ARGS</div><div class="line">Restart=on-failure</div><div class="line">[Install]</div><div class="line">WantedBy=multi-user.target</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Master启动</div><div class="line"><span class="meta"># mkdir -p /var/lib/kube-dns</span></div><div class="line"><span class="meta"># systemctl enable kube-dns</span></div><div class="line"><span class="meta"># systemctl restart kube-dns</span></div><div class="line"></div><div class="line">master修改/etc/resolv.conf文件</div><div class="line"><span class="meta"># cat /etc/resolv.conf</span></div><div class="line"># Generated by NetworkManager</div><div class="line">search <span class="keyword">default</span>.svc.cluster.local svc.cluster.local cluster.local</div><div class="line">nameserver <span class="number">10.200</span><span class="number">.102</span><span class="number">.95</span></div><div class="line">nameserver <span class="number">223.5</span><span class="number">.5</span><span class="number">.5</span></div><div class="line">nameserver <span class="number">202.96</span><span class="number">.128</span><span class="number">.86</span></div></pre></td></tr></table></figure>
+<p>node结点修改kubelet文件<br><img src="/uploads/Kubernetes环境搭建/calico-edit-kubectl.png" alt="calico-edit-kubectl"></p>
+<p>验证kube-dns是否安装成功<br><img src="/uploads/Kubernetes环境搭建/kube-dns.png" alt="kube-dns"></p>
+<h3 id="安装calico环境"><a href="#安装calico环境" class="headerlink" title="安装calico环境"></a>安装calico环境</h3><p>配置各个节点docker环境：<br><img src="/uploads/Kubernetes环境搭建/calico-docker-node-1.png" alt="calico-docker-node-1"><br><img src="/uploads/Kubernetes环境搭建/calico-docker-node-2.png" alt="calico-docker-node-2"><br><img src="/uploads/Kubernetes环境搭建/calico-docker-node-3.png" alt="calico-docker-node-3"></p>
+<p>配置好，记得重启docker<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># systemctl  daemon-reload</span></div><div class="line"><span class="meta"># systemctl  restart docker</span></div></pre></td></tr></table></figure></p>
+<p>下载calico插件<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Master节点：</div><div class="line"><span class="meta"># wget https:<span class="comment">//github.com/projectcalico/calicoctl/releases/download/v1.1.0/calicoctl</span></span></div><div class="line"><span class="meta"># chmod +x calicoctl</span></div><div class="line"><span class="meta"># mv calicoctl  /usr/bin/</span></div><div class="line"><span class="meta"># docker pull docker.io/calico/node:v1.1.0</span></div><div class="line"><span class="meta"># docker tag  docker.io/calico/node:v1.1.0  quay.io/calico/node:v1.1.0</span></div><div class="line"><span class="meta">#wget N -P /opt/cni/bin/ </span></div><div class="line">https:<span class="comment">//github.com/projectcalico/calico-cni/releases/download/v1.6.0/calico</span></div><div class="line"><span class="meta"># wget -N -P /opt/cni/bin/ </span></div><div class="line">https:<span class="comment">//github.com/projectcalico/calico-cni/releases/download/v1.6.0/calico-ipam</span></div><div class="line"><span class="meta"># chmod +x /opt/cni/bin/calico /opt/cni/bin/calico-ipam</span></div><div class="line"></div><div class="line">Node节点：</div><div class="line"><span class="meta"># docker pull docker.io/calico/node:v1.1.0</span></div><div class="line"><span class="meta"># docker tag  docker.io/calico/node:v1.1.0  quay.io/calico/node:v1.1.0</span></div><div class="line"><span class="meta"># wget -N -P /opt/cni/bin/ </span></div><div class="line">https:<span class="comment">//github.com/projectcalico/calico-cni/releases/download/v1.6.0/calico</span></div><div class="line"><span class="meta"># wget -N -P /opt/cni/bin/ </span></div><div class="line">https:<span class="comment">//github.com/projectcalico/calico-cni/releases/download/v1.6.0/calico-ipam</span></div><div class="line"><span class="meta"># chmod +x /opt/cni/bin/calico /opt/cni/bin/calico-ipam</span></div></pre></td></tr></table></figure></p>
+<p>配置文件(所有节点)<br><img src="/uploads/Kubernetes环境搭建/calico-config-1.png" alt="calico-config-1"><br><img src="/uploads/Kubernetes环境搭建/calico-config-2.png" alt="calico-config-2"><br><img src="/uploads/Kubernetes环境搭建/calico-config-3.png" alt="calico-config-3"></p>
+<p>Master机上<br>wget <a href="http://docs.projectcalico.org/v1.5/getting-started/kubernetes/installation/policy-controller.yaml" target="_blank" rel="external">http://docs.projectcalico.org/v1.5/getting-started/kubernetes/installation/policy-controller.yaml</a></p>
+<p>修改 policy-controller.yaml文件里的etcd的地址<br><img src="/uploads/Kubernetes环境搭建/policy-controller.png" alt="policy-controller"></p>
+<p>启动文件：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># serivce etcd restart</span></div><div class="line"><span class="meta"># kubectl  create -f policy-controller.yaml</span></div><div class="line"></div><div class="line">每个节点上启动calico-node服务(ETCD_AUTHORITY可以配置多个（集群方案）)</div><div class="line"><span class="meta"># systemctl enable calico-node</span></div><div class="line"><span class="meta"># systemctl start calico-node</span></div><div class="line"><span class="meta"># export ETCD_AUTHORITY=10.200.102.85:2379</span></div><div class="line"></div><div class="line">验证calico是否启动正常</div><div class="line">calicoctl node status</div><div class="line">calicoctl get nodes --out=wide</div></pre></td></tr></table></figure></p>
+<p><img src="/uploads/Kubernetes环境搭建/calico-node-status.png" alt="calico-node-status"><br><img src="/uploads/Kubernetes环境搭建/calico-node.png" alt="calico-node"></p>
+<p>添加子网<br><img src="/uploads/Kubernetes环境搭建/calico-pool.png" alt="calico-pool"><img src="/uploads/Kubernetes环境搭建/do-pool.png" alt="do-pool"><br><img src="/uploads/Kubernetes环境搭建/get-pool.png" alt="get-pool"></p>
+<p>至此calico的k8s方案搭建成功</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kubernetes/" rel="tag"># Kubernetes</a>
+          
+            <a href="/tags/Docker/" rel="tag"># Docker</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/19/Java-HashMap-源码解析/" rel="prev" title="Java HashMap 源码解析">
+                Java HashMap 源码解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/JeromeLiu.jpg"
+               alt="JeromeLiu" />
+          <p class="site-author-name" itemprop="name">JeromeLiu</p>
+           
+              <p class="site-description motion-element" itemprop="description">技术高于业务，但又服务于业务。</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JeromeLiuLly" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2691150331/home?wvr=5&lf=reg" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://o-my-chenjian.com/" title="chenjian(python开发)" target="_blank">chenjian(python开发)</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://jm.taobao.org/" title="阿里中间件博客" target="_blank">阿里中间件博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一种安装方案-官网"><span class="nav-number">1.</span> <span class="nav-text">第一种安装方案(官网)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备CentOS-7-x环境"><span class="nav-number">1.1.</span> <span class="nav-text">准备CentOS 7.x环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Kubernetes环境-Master"><span class="nav-number">1.2.</span> <span class="nav-text">安装Kubernetes环境(Master)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Kubernetes环境-Minion-Node"><span class="nav-number">1.3.</span> <span class="nav-text">安装Kubernetes环境(Minion/Node):</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二种安装方案-tar安装"><span class="nav-number">2.</span> <span class="nav-text">第二种安装方案(tar安装)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步：配置flannel网卡-先在etcd中注册flannel子网："><span class="nav-number">2.1.</span> <span class="nav-text">第一步：配置flannel网卡,先在etcd中注册flannel子网：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步：在所有节点安装flannel"><span class="nav-number">2.2.</span> <span class="nav-text">第二步：在所有节点安装flannel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步：修改flannel配置文件-etc-sysconfig-flanneld"><span class="nav-number">2.3.</span> <span class="nav-text">第三步：修改flannel配置文件/etc/sysconfig/flanneld</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步：下载地址"><span class="nav-number">2.4.</span> <span class="nav-text">第四步：下载地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步：在server端服务器解压包"><span class="nav-number">2.5.</span> <span class="nav-text">第五步：在server端服务器解压包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六步：启动master"><span class="nav-number">2.6.</span> <span class="nav-text">第六步：启动master</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七步：验证是否成功"><span class="nav-number">2.7.</span> <span class="nav-text">第七步：验证是否成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八步：配置client"><span class="nav-number">2.8.</span> <span class="nav-text">第八步：配置client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九步：启动client"><span class="nav-number">2.9.</span> <span class="nav-text">第九步：启动client</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三种安装方案-calico"><span class="nav-number">3.</span> <span class="nav-text">第三种安装方案(calico)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境介绍"><span class="nav-number">3.1.</span> <span class="nav-text">环境介绍:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#etc环境安装-可以选择集群的方案安装"><span class="nav-number">3.2.</span> <span class="nav-text">etc环境安装(可以选择集群的方案安装)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装k8s-master环境"><span class="nav-number">3.3.</span> <span class="nav-text">安装k8s master环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装k8s-node环境"><span class="nav-number">3.4.</span> <span class="nav-text">安装k8s node环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装kube-dns环境-master节点"><span class="nav-number">3.5.</span> <span class="nav-text">安装kube-dns环境(master节点)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装calico环境"><span class="nav-number">3.6.</span> <span class="nav-text">安装calico环境</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JeromeLiu</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "e831808908014c5d8150b0977a72f67d",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("d3AsECEvL0QqUzESfLGrRciX-gzGzoHsz", "yTdPqfb2CEUEXKDKBr1Hdugt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
