@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://jeromeliu.win/2017/04/21/Kubernetes-%E6%90%AD%E5%BB%BAdashboard/</loc>
+    <lastmod>2017-04-21T09:36:54.349Z</lastmod>
+    <data>
+        <display>
+        <title>Kubernetes 搭建dashboard</title>
+        <pubTime>2017-04-21T09:01:43.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jeromeliu.win/2017/04/20/Kubernetes%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2017-04-21T09:25:01.318Z</lastmod>
+    <data>
+        <display>
+        <title>Kubernetes环境搭建</title>
+        <pubTime>2017-04-20T02:53:15.000Z</pubTime>
+        
+        <tag>Kubernetes</tag>
+         
+        <tag>Docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="容器化" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/"/>
+          
+             
+              <breadCrumb title="服务搭建" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jeromeliu.win/2017/04/21/Kubernetes-%E5%8F%8C%E5%90%91%E8%AF%81%E4%B9%A6TLS%E9%85%8D%E7%BD%AE/</loc>
     <lastmod>2017-04-21T09:00:30.713Z</lastmod>
     <data>
@@ -29,31 +69,6 @@
 
     
     
-    
-  <url>
-    <loc>http://jeromeliu.win/2017/04/20/Kubernetes%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2017-04-21T04:38:43.938Z</lastmod>
-    <data>
-        <display>
-        <title>Kubernetes环境搭建</title>
-        <pubTime>2017-04-20T02:53:15.000Z</pubTime>
-        
-        <tag>Kubernetes</tag>
-         
-        <tag>Docker</tag>
-         
-         
-           
-             
-              <breadCrumb title="容器化" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/"/>
-          
-             
-              <breadCrumb title="服务搭建" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://jeromeliu.win/2017/04/19/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%BB%BC%E8%BF%B0/</loc>
