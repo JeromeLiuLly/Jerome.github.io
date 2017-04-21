@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-20T07:26:03.553Z</updated>
+  <updated>2017-04-21T04:38:43.938Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/04/20/Kubernetes%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://yoursite.com/2017/04/20/Kubernetes环境搭建/</id>
     <published>2017-04-20T02:53:15.000Z</published>
-    <updated>2017-04-20T07:26:03.553Z</updated>
+    <updated>2017-04-21T04:38:43.938Z</updated>
     
     <content type="html"><![CDATA[<p><blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote></p>
 <h2 id="第一种安装方案-官网"><a href="#第一种安装方案-官网" class="headerlink" title="第一种安装方案(官网)"></a>第一种安装方案(官网)</h2><p>基于官方的安装方式(<code style="color:red">安装包并非是最新版本的</code>)</p>
@@ -136,6 +136,8 @@
     </summary>
     
       <category term="容器化" scheme="http://yoursite.com/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/"/>
+    
+      <category term="服务搭建" scheme="http://yoursite.com/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"/>
     
     
       <category term="Kubernetes" scheme="http://yoursite.com/tags/Kubernetes/"/>
