@@ -3,6 +3,31 @@
 
 
     
+  <url>
+    <loc>http://jeromeliu.win/2017/04/21/Kubernetes-%E5%8F%8C%E5%90%91%E8%AF%81%E4%B9%A6TLS%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2017-04-21T09:00:30.713Z</lastmod>
+    <data>
+        <display>
+        <title>Kubernetes 双向证书TLS配置</title>
+        <pubTime>2017-04-21T08:41:35.000Z</pubTime>
+        
+        <tag>Kubernetes</tag>
+         
+        <tag>Docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="容器化" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/"/>
+          
+             
+              <breadCrumb title="服务搭建" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
