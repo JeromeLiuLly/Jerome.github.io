@@ -93,62 +93,62 @@
 <meta name="keywords" content="Kubernetes,Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kubernetes环境搭建">
-<meta property="og:url" content="http://yoursite.com/2017/04/20/Kubernetes环境搭建/index.html">
+<meta property="og:url" content="http://jeromeliu.win/2017/04/20/Kubernetes环境搭建/index.html">
 <meta property="og:site_name" content="世上本无路，庸人自扰之">
 <meta property="og:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你 第一种安装方案(官网)基于官方的安装方式(安装包并非是最新版本的) 准备CentOS 7.x环境查看内核版本123[root@k8s-master kube-yaml]# uname -r3.10.0-514.6.1.el7.x86_64[root@k8s-master kube-yaml]#  最好是选择3.10版本以上的内核，进行安装。本次安装">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates环境安装.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates搭建结果.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/hosts配置.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-config.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/setlinux.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/ectd.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/apiserver.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/start-etcd.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-network.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/flanneld.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-start.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-ready.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates环境安装.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates搭建结果.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/hosts配置.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/setlinux.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-config.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/kubectl.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/flanneld.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-node.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/kubectl-config.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-install.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-config.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-config2.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/etcd-start.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-calico-config.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/k8s-calico-apiserver.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-server.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-kubectl.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-proxy.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-config.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker2.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-k8s-server2.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-edit-kubectl.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/kube-dns.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker-node-1.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker-node-2.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-docker-node-3.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-config-1.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-config-2.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-config-3.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/policy-controller.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-node-status.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-node.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/calico-pool.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/do-pool.png">
-<meta property="og:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/get-pool.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/Kubernates环境安装.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/Kubernates搭建结果.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/hosts配置.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/k8s-config.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/setlinux.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/ectd.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/apiserver.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/start-etcd.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/etcd-network.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/flanneld.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/k8s-start.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/k8s-ready.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/Kubernates环境安装.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/Kubernates搭建结果.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/hosts配置.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/setlinux.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/k8s-config.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/kubectl.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/flanneld.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/k8s-node.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/kubectl-config.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/etcd-install.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/etcd-config.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/etcd-config2.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/etcd-start.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/k8s-calico-config.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/k8s-calico-apiserver.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-docker.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-k8s-server.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-k8s-kubectl.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-k8s-proxy.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-k8s-config.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-docker2.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-k8s-server2.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-edit-kubectl.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/kube-dns.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-docker-node-1.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-docker-node-2.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-docker-node-3.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-config-1.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-config-2.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-config-3.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/policy-controller.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-node-status.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-node.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/calico-pool.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/do-pool.png">
+<meta property="og:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/get-pool.png">
 <meta property="og:updated_time" content="2017-04-21T04:38:43.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kubernetes环境搭建">
 <meta name="twitter:description" content="优秀的人，不是不合群，而是他们合群的人里面没有你 第一种安装方案(官网)基于官方的安装方式(安装包并非是最新版本的) 准备CentOS 7.x环境查看内核版本123[root@k8s-master kube-yaml]# uname -r3.10.0-514.6.1.el7.x86_64[root@k8s-master kube-yaml]#  最好是选择3.10版本以上的内核，进行安装。本次安装">
-<meta name="twitter:image" content="http://yoursite.com/uploads/Kubernetes环境搭建/Kubernates环境安装.png">
+<meta name="twitter:image" content="http://jeromeliu.win/uploads/Kubernetes环境搭建/Kubernates环境安装.png">
 
 
 
@@ -176,7 +176,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/20/Kubernetes环境搭建/"/>
+  <link rel="canonical" href="http://jeromeliu.win/2017/04/20/Kubernetes环境搭建/"/>
 
 
 
@@ -368,7 +368,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/Kubernetes环境搭建/">
+    <link itemprop="mainEntityOfPage" href="http://jeromeliu.win/2017/04/20/Kubernetes环境搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JeromeLiu">

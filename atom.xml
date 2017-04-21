@@ -4,9 +4,9 @@
   <subtitle>世上本无路，庸人自扰之</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://jeromeliu.win/"/>
   <updated>2017-04-21T04:38:43.938Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://jeromeliu.win/</id>
   
   <author>
     <name>JeromeLiu</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Kubernetes环境搭建</title>
-    <link href="http://yoursite.com/2017/04/20/Kubernetes%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2017/04/20/Kubernetes环境搭建/</id>
+    <link href="http://jeromeliu.win/2017/04/20/Kubernetes%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://jeromeliu.win/2017/04/20/Kubernetes环境搭建/</id>
     <published>2017-04-20T02:53:15.000Z</published>
     <updated>2017-04-21T04:38:43.938Z</updated>
     
@@ -135,21 +135,21 @@
     
     </summary>
     
-      <category term="容器化" scheme="http://yoursite.com/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/"/>
+      <category term="容器化" scheme="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/"/>
     
-      <category term="服务搭建" scheme="http://yoursite.com/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"/>
+      <category term="服务搭建" scheme="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"/>
     
     
-      <category term="Kubernetes" scheme="http://yoursite.com/tags/Kubernetes/"/>
+      <category term="Kubernetes" scheme="http://jeromeliu.win/tags/Kubernetes/"/>
     
-      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+      <category term="Docker" scheme="http://jeromeliu.win/tags/Docker/"/>
     
   </entry>
   
   <entry>
     <title>Java HashMap 源码解析</title>
-    <link href="http://yoursite.com/2017/04/19/Java-HashMap-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
-    <id>http://yoursite.com/2017/04/19/Java-HashMap-源码解析/</id>
+    <link href="http://jeromeliu.win/2017/04/19/Java-HashMap-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
+    <id>http://jeromeliu.win/2017/04/19/Java-HashMap-源码解析/</id>
     <published>2017-04-19T02:26:08.000Z</published>
     <updated>2017-04-19T07:21:39.458Z</updated>
     
@@ -227,19 +227,19 @@
     
     </summary>
     
-      <category term="编程开发" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/"/>
+      <category term="编程开发" scheme="http://jeromeliu.win/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Java开发" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/Java%E5%BC%80%E5%8F%91/"/>
+      <category term="Java开发" scheme="http://jeromeliu.win/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/Java%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Java集合" scheme="http://yoursite.com/tags/Java%E9%9B%86%E5%90%88/"/>
+      <category term="Java集合" scheme="http://jeromeliu.win/tags/Java%E9%9B%86%E5%90%88/"/>
     
   </entry>
   
   <entry>
     <title>Java集合框架综述</title>
-    <link href="http://yoursite.com/2017/04/19/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%BB%BC%E8%BF%B0/"/>
-    <id>http://yoursite.com/2017/04/19/Java集合框架综述/</id>
+    <link href="http://jeromeliu.win/2017/04/19/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E7%BB%BC%E8%BF%B0/"/>
+    <id>http://jeromeliu.win/2017/04/19/Java集合框架综述/</id>
     <published>2017-04-19T01:56:44.000Z</published>
     <updated>2017-04-20T07:31:40.718Z</updated>
     
@@ -337,19 +337,19 @@
     
     </summary>
     
-      <category term="编程开发" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/"/>
+      <category term="编程开发" scheme="http://jeromeliu.win/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Java开发" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/Java%E5%BC%80%E5%8F%91/"/>
+      <category term="Java开发" scheme="http://jeromeliu.win/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/Java%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Java集合" scheme="http://yoursite.com/tags/Java%E9%9B%86%E5%90%88/"/>
+      <category term="Java集合" scheme="http://jeromeliu.win/tags/Java%E9%9B%86%E5%90%88/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2017/04/18/hello-world/"/>
-    <id>http://yoursite.com/2017/04/18/hello-world/</id>
+    <link href="http://jeromeliu.win/2017/04/18/hello-world/"/>
+    <id>http://jeromeliu.win/2017/04/18/hello-world/</id>
     <published>2017-04-18T05:14:45.733Z</published>
     <updated>2017-04-18T11:02:13.563Z</updated>
     
@@ -371,9 +371,9 @@
     </summary>
     
     
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+      <category term="git" scheme="http://jeromeliu.win/tags/git/"/>
     
-      <category term="test" scheme="http://yoursite.com/tags/test/"/>
+      <category term="test" scheme="http://jeromeliu.win/tags/test/"/>
     
   </entry>
   
