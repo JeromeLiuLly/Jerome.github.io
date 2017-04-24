@@ -4,12 +4,87 @@
 
     
   <url>
+    <loc>http://jeromeliu.win/2017/04/24/Kubernetes-%E6%90%AD%E5%BB%BAjenkins/</loc>
+    <lastmod>2017-04-24T02:34:58.176Z</lastmod>
+    <data>
+        <display>
+        <title>Kubernetes 搭建jenkins</title>
+        <pubTime>2017-04-24T02:32:48.000Z</pubTime>
+        
+        <tag>Kubernetes</tag>
+         
+        <tag>Docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="容器化" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/"/>
+          
+             
+              <breadCrumb title="服务搭建" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jeromeliu.win/2017/04/24/Kubernetes-%E6%90%AD%E5%BB%BAkube-dns/</loc>
+    <lastmod>2017-04-24T02:27:06.583Z</lastmod>
+    <data>
+        <display>
+        <title>Kubernetes 搭建kube-dns</title>
+        <pubTime>2017-04-24T02:14:23.000Z</pubTime>
+        
+        <tag>Kubernetes</tag>
+         
+        <tag>Docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="容器化" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/"/>
+          
+             
+              <breadCrumb title="服务搭建" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jeromeliu.win/2017/04/21/Kubernetes-%E6%90%AD%E5%BB%BAdashboard/</loc>
-    <lastmod>2017-04-21T09:36:54.349Z</lastmod>
+    <lastmod>2017-04-24T02:14:44.672Z</lastmod>
     <data>
         <display>
         <title>Kubernetes 搭建dashboard</title>
         <pubTime>2017-04-21T09:01:43.000Z</pubTime>
+        
+        <tag>Kubernetes</tag>
+         
+        <tag>Docker</tag>
+         
+         
+           
+             
+              <breadCrumb title="容器化" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/"/>
+          
+             
+              <breadCrumb title="服务搭建" url="http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jeromeliu.win/2017/04/18/hello-world/</loc>
+    <lastmod>2017-04-21T09:38:56.301Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-04-18T05:14:45.733Z</pubTime>
         
          
            
@@ -111,25 +186,6 @@
              
               <breadCrumb title="Java开发" url="http://jeromeliu.win/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/Java%E5%BC%80%E5%8F%91/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jeromeliu.win/2017/04/18/hello-world/</loc>
-    <lastmod>2017-04-18T11:02:13.563Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2017-04-18T05:14:45.733Z</pubTime>
-        
-        <tag>git</tag>
-         
-        <tag>test</tag>
-         
-         
-           
         </display>
     </data>
     </url>
