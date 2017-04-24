@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jeromeliu.win/"/>
-  <updated>2017-04-24T02:34:58.176Z</updated>
+  <updated>2017-04-24T02:46:09.278Z</updated>
   <id>http://jeromeliu.win/</id>
   
   <author>
@@ -20,9 +20,22 @@
     <link href="http://jeromeliu.win/2017/04/24/Kubernetes-%E6%90%AD%E5%BB%BAjenkins/"/>
     <id>http://jeromeliu.win/2017/04/24/Kubernetes-搭建jenkins/</id>
     <published>2017-04-24T02:32:48.000Z</published>
-    <updated>2017-04-24T02:34:58.176Z</updated>
+    <updated>2017-04-24T02:46:09.278Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
+
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p><img src="/uploads/Kubernetes 搭建jenkins/jenkins-create.png" alt="jenkins-create"></p>
+<h2 id="配置信息"><a href="#配置信息" class="headerlink" title="配置信息"></a>配置信息</h2><p><img src="/uploads/Kubernetes 搭建jenkins/jenkins-config-1.png" alt="jenkins-config-1"><img src="/uploads/Kubernetes 搭建jenkins/jenkins-config-2.png" alt="jenkins-config-2"><img src="/uploads/Kubernetes 搭建jenkins/jenkins-config-3.png" alt="jenkins-config-3"><img src="/uploads/Kubernetes 搭建jenkins/jenkins-config-4.png" alt="jenkins-config-4"></p>
+<h2 id="配置编译和生成镜像文件"><a href="#配置编译和生成镜像文件" class="headerlink" title="配置编译和生成镜像文件"></a>配置编译和生成镜像文件</h2><p><img src="/uploads/Kubernetes 搭建jenkins/jenkins-build-1.png" alt="jenkins-build-1"><img src="/uploads/Kubernetes 搭建jenkins/jenkins-build-2.png" alt="jenkins-build-2"></p>
+<h2 id="启动界面"><a href="#启动界面" class="headerlink" title="启动界面"></a>启动界面</h2><p><img src="/uploads/Kubernetes 搭建jenkins/jenkins-start.png" alt="jenkins-start"></p>
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p><img src="/uploads/Kubernetes 搭建jenkins/jenkins-result.png" alt="jenkins-result"></p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;优秀的人，不是不合群，而是他们合群的人里面没有你&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;创建项目&quot;&gt;&lt;a href=&quot;#创建项目&quot; class=&quot;headerlink&quot; title=&quot;创建项目&quot;&gt;&lt;
     
     </summary>
     
