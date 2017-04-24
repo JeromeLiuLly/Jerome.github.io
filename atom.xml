@@ -64,17 +64,17 @@
     <link href="http://jeromeliu.win/2017/04/24/Kubernetes-%E9%85%8D%E7%BD%AEHPA%EF%BC%8C%E5%AE%9E%E7%8E%B0%E5%8A%A8%E6%80%81%E6%89%A9%E5%AE%B9/"/>
     <id>http://jeromeliu.win/2017/04/24/Kubernetes-配置HPA，实现动态扩容/</id>
     <published>2017-04-24T03:06:33.000Z</published>
-    <updated>2017-04-24T03:18:36.051Z</updated>
+    <updated>2017-04-24T03:36:41.195Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
 
 <h2 id="测试方案一-CPU限制"><a href="#测试方案一-CPU限制" class="headerlink" title="测试方案一(CPU限制)"></a>测试方案一(CPU限制)</h2><h3 id="下载必要的yaml文件"><a href="#下载必要的yaml文件" class="headerlink" title="下载必要的yaml文件"></a>下载必要的yaml文件</h3><p><a href="https://github.com/kubernetes/kubernetes/tree/8caeec429ee1d2a9df7b7a41b21c626346b456fb/docs/user-guide/horizontal-pod-autoscaling" target="_blank" rel="external">https://github.com/kubernetes/kubernetes/tree/8caeec429ee1d2a9df7b7a41b21c626346b456fb/docs/user-guide/horizontal-pod-autoscaling</a></p>
 <h3 id="修改官方的规则"><a href="#修改官方的规则" class="headerlink" title="修改官方的规则"></a>修改官方的规则</h3><p>官方的方案是基于RC的，现在我们更换成<code style="color:red">Deployment</code>的方式。</p>
-<p>cat php-apache-Deployment.yaml<br><img src="/uploads/Kubernetes 搭建grafana+heapster+influxdb监控服务/php-apache-Deployment.png" alt="php-apache-Deployment"></p>
-<p>cat php-apache-Service.yaml<br><img src="/uploads/Kubernetes 搭建grafana+heapster+influxdb监控服务/php-apache-Service.png" alt="php-apache-Service"></p>
-<p>cat php-apache-Hpa.yaml<br><img src="/uploads/Kubernetes 搭建grafana+heapster+influxdb监控服务/php-apache-Hpa.png" alt="php-apache-Hpa"></p>
-<h3 id="创建Pod"><a href="#创建Pod" class="headerlink" title="创建Pod"></a>创建Pod</h3><p>kubectl create -f /home/kube-yaml/pod-autoscaler/<br><img src="/uploads/Kubernetes 搭建grafana+heapster+influxdb监控服务/pod-autoscaler.png" alt="pod-autoscaler"></p>
-<h3 id="查看集群情况"><a href="#查看集群情况" class="headerlink" title="查看集群情况"></a>查看集群情况</h3><p><img src="/uploads/Kubernetes 搭建grafana+heapster+influxdb监控服务/result-1.png" alt="result-1"><br><img src="/uploads/Kubernetes 搭建grafana+heapster+influxdb监控服务/result-2.png" alt="result-2"><br><img src="/uploads/Kubernetes 搭建grafana+heapster+influxdb监控服务/result-3.png" alt="result-3"><br><img src="/uploads/Kubernetes 搭建grafana+heapster+influxdb监控服务/result-4.png" alt="result-4"></p>
+<p>cat php-apache-Deployment.yaml<br><img src="/uploads/Kubernetes 配置HPA，实现动态扩容/php-apache-Deployment.png" alt="php-apache-Deployment"></p>
+<p>cat php-apache-Service.yaml<br><img src="/uploads/Kubernetes 配置HPA，实现动态扩容/php-apache-Service.png" alt="php-apache-Service"></p>
+<p>cat php-apache-Hpa.yaml<br><img src="/uploads/Kubernetes 配置HPA，实现动态扩容/php-apache-Hpa.png" alt="php-apache-Hpa"></p>
+<h3 id="创建Pod"><a href="#创建Pod" class="headerlink" title="创建Pod"></a>创建Pod</h3><p>kubectl create -f /home/kube-yaml/pod-autoscaler/<br><img src="/uploads/Kubernetes 配置HPA，实现动态扩容/pod-autoscaler.png" alt="pod-autoscaler"></p>
+<h3 id="查看集群情况"><a href="#查看集群情况" class="headerlink" title="查看集群情况"></a>查看集群情况</h3><p><img src="/uploads/Kubernetes 配置HPA，实现动态扩容/result-1.png" alt="result-1"><br><img src="/uploads/Kubernetes 配置HPA，实现动态扩容/result-2.png" alt="result-2"><br><img src="/uploads/Kubernetes 配置HPA，实现动态扩容/result-3.png" alt="result-3"><br><img src="/uploads/Kubernetes 配置HPA，实现动态扩容/result-4.png" alt="result-4"></p>
 <p><code style="color:red">注：k8s是基于周期性采样进行处理扩容和收缩的。所以，并不是根据cup或者memory的变化，立马做出扩容的处理(需要几分钟的时间)。</code></p>
 ]]></content>
     
@@ -102,7 +102,7 @@
     <link href="http://jeromeliu.win/2017/04/24/Kubernetes-%E6%90%AD%E5%BB%BAgrafana-heapster-influxdb%E7%9B%91%E6%8E%A7%E6%9C%8D%E5%8A%A1/"/>
     <id>http://jeromeliu.win/2017/04/24/Kubernetes-搭建grafana-heapster-influxdb监控服务/</id>
     <published>2017-04-24T02:55:23.000Z</published>
-    <updated>2017-04-24T03:05:05.663Z</updated>
+    <updated>2017-04-24T03:36:49.538Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center">优秀的人，不是不合群，而是他们合群的人里面没有你</blockquote>
 
