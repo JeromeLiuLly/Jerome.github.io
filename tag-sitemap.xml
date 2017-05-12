@@ -2,22 +2,29 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://jeromeliu.win/tags/Java%E9%9B%86%E5%90%88/</loc>
-        <lastmod>2017-04-20T07:31:40.718Z</lastmod>
+        <loc>http://jeromeliu.win/tags/Kubernetes/</loc>
+        <lastmod>2017-04-24T03:38:06.418Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://jeromeliu.win/tags/Kubernetes/</loc>
-        <lastmod>2017-04-24T03:36:49.538Z</lastmod>
+        <loc>http://jeromeliu.win/tags/Java%E9%9B%86%E5%90%88/</loc>
+        <lastmod>2017-05-08T08:29:18.177Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://jeromeliu.win/tags/SpringCloud/</loc>
+        <lastmod>2017-05-08T09:07:44.858Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://jeromeliu.win/tags/Docker/</loc>
-        <lastmod>2017-04-24T03:36:49.538Z</lastmod>
+        <lastmod>2017-05-08T09:07:44.858Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

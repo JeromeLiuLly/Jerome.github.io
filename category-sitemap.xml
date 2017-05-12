@@ -7,29 +7,50 @@
     </url>
 
     <url>
-        <loc>http://jeromeliu.win/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/</loc>
-        <lastmod>2017-04-20T07:31:40.718Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://jeromeliu.win/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/Java%E5%BC%80%E5%8F%91/</loc>
-        <lastmod>2017-04-20T07:31:40.718Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/</loc>
-        <lastmod>2017-04-24T03:36:49.538Z</lastmod>
+        <lastmod>2017-04-24T03:38:06.418Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://jeromeliu.win/categories/%E5%AE%B9%E5%99%A8%E5%8C%96/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</loc>
-        <lastmod>2017-04-24T03:36:49.538Z</lastmod>
+        <lastmod>2017-04-24T03:38:06.418Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://jeromeliu.win/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/</loc>
+        <lastmod>2017-05-08T08:29:18.177Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://jeromeliu.win/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/Java%E5%BC%80%E5%8F%91/</loc>
+        <lastmod>2017-05-08T08:29:18.177Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://jeromeliu.win/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
+        <lastmod>2017-05-08T09:07:44.858Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://jeromeliu.win/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</loc>
+        <lastmod>2017-05-08T09:07:44.858Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://jeromeliu.win/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/</loc>
+        <lastmod>2017-05-12T09:50:11.698Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
